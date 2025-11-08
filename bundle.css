@@ -1,0 +1,244 @@
+/* src/index.css */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #0f172a;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* src/App.css */
+body {
+  margin: 0;
+  background: #0f172a;
+}
+.app {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  color: #0f172a;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  padding: 2rem;
+}
+.map-wrapper {
+  width: min(1400px, 100%);
+}
+.map-title {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e5e7eb;
+  text-align: center;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2.3fr) minmax(280px, 1fr);
+  gap: 1.5rem;
+}
+.map-card,
+.booking-card {
+  background: #f9fafb;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.45);
+  padding: 1.25rem;
+}
+.map-toolbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #111827;
+  color: #e5e7eb;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.map-toolbar button {
+  border: none;
+  background: #e5e7eb;
+  border-radius: 999px;
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.map-toolbar button:hover {
+  background: #f9fafb;
+}
+.toolbar-label {
+  opacity: 0.75;
+  margin-right: 0.25rem;
+}
+.zoom-label {
+  min-width: 2.2rem;
+  text-align: center;
+}
+.map-viewport {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: auto;
+  max-height: 650px;
+  background: #111827;
+}
+.map-inner {
+  position: relative;
+  margin: 0 auto;
+  transform-origin: center center;
+  width: 100%;
+  aspect-ratio: 1600 / 526;
+}
+.map-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1rem;
+}
+.resource-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease-out,
+    box-shadow 0.12s ease-out,
+    background 0.12s ease-out;
+}
+.resource-pin-label {
+  font-weight: 700;
+  color: #111827;
+}
+.resource-desk {
+  background: #22c55e;
+}
+.resource-room {
+  background: #0ea5e9;
+}
+.resource-booked {
+  background: #ef4444;
+}
+.resource-selected {
+  box-shadow: 0 0 0 3px #fbbf24;
+  transform: translate(-50%, -50%) scale(1.15);
+}
+.resource-pin:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+.booking-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+.booking-section {
+  margin-bottom: 0.75rem;
+}
+.booking-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #6b7280;
+  margin-bottom: 0.15rem;
+}
+.booking-value {
+  margin: 0;
+  font-size: 0.95rem;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.5rem;
+  margin-left: 0.35rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  background: #e5e7eb;
+}
+.booking-card input[type=date] {
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  width: 100%;
+}
+.booking-status {
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+.status-free {
+  background: #dcfce7;
+  color: #166534;
+}
+.status-booked {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.booking-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.primary-btn,
+.secondary-btn {
+  flex: 1;
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.primary-btn {
+  background: #0ea5e9;
+  color: #f9fafb;
+}
+.primary-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+.secondary-btn {
+  background: #e5e7eb;
+  color: #111827;
+}
+.secondary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.hint {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .map-wrapper {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=bundle.css.map */
