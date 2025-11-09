@@ -317,17 +317,20 @@ const RESOURCES = [
   { id: "Well-1", type: "wellness", label: "Wellness Room 1", x: 153.5, y: 40 },
   { id: "Well-2", type: "wellness", label: "Wellness Room 2", x: 30, y: 50 },
 
-  //bigrooom
+  //bigroom
   { id: "BigRoom-1", type: "bigroom", label: "Big Room 1", x: 162.5, y: 45 },
   { id: "BigRoom-2", type: "bigroom", label: "Big Room 2", x: 173, y: 45 },
+
+  //beerpong
+  { id: "Beerpong-1", type: "beerpong", label: "Beer Zone", x: 15.5, y: 48 },
 ];
 
-// key is still resource+date; each value will be an array of intervals
+// key is resource+date
 function makeBookingKey(resourceId, dateStr) {
   return `${resourceId}_${dateStr}`;
 }
 
-// helpers for time overlap
+// time helpers
 function parseTimeToMinutes(t) {
   const [h, m] = t.split(":").map(Number);
   return h * 60 + m;
@@ -344,9 +347,10 @@ function App() {
   const [selectedDate, setSelectedDate] = useState(
     new Date().toISOString().slice(0, 10) // YYYY-MM-DD
   );
-  const [startTime, setStartTime] = useState("18:00"); // NEW
-  const [endTime, setEndTime] = useState("20:00"); // NEW
+  const [startTime, setStartTime] = useState("18:00");
+  const [endTime, setEndTime] = useState("20:00");
   const [zoom, setZoom] = useState(1);
+
   // bookings: { key: [ { resourceId, date, start, end, user } ] }
   const [bookings, setBookings] = useState({});
 
@@ -365,7 +369,33 @@ function App() {
     return bookings[bookingKeyForSelected] || [];
   }, [bookings, bookingKeyForSelected]);
 
-  const isSelectedBooked = bookingsForSelected.length > 0;
+  const hasValidInterval =
+    startTime &&
+    endTime &&
+    parseTimeToMinutes(endTime) > parseTimeToMinutes(startTime);
+
+  // is there something booked overlapping the selected interval
+  const isSelectedBooked = useMemo(() => {
+    if (!bookingKeyForSelected) return false;
+    const current = bookingsForSelected;
+
+    if (!hasValidInterval) {
+      // no valid interval -> just show if anything that day
+      return current.length > 0;
+    }
+
+    const s = parseTimeToMinutes(startTime);
+    const e = parseTimeToMinutes(endTime);
+
+    return current.some((b) =>
+      intervalsOverlap(
+        s,
+        e,
+        parseTimeToMinutes(b.start),
+        parseTimeToMinutes(b.end)
+      )
+    );
+  }, [bookingKeyForSelected, bookingsForSelected, hasValidInterval, startTime, endTime]);
 
   const handleBook = () => {
     if (!selectedResource || !selectedDate) return;
@@ -399,7 +429,7 @@ function App() {
       return;
     }
 
-    const userName = "You"; // replace with actual user later
+    const userName = "You"; // replace with real user later
 
     setBookings((prev) => ({
       ...prev,
@@ -421,7 +451,7 @@ function App() {
     const key = makeBookingKey(selectedResource.id, selectedDate);
     const existing = bookings[key] || [];
 
-    const userName = "You"; // same as above
+    const userName = "You";
     const filtered = existing.filter(
       (b) =>
         !(
@@ -479,8 +509,30 @@ function App() {
 
                 {RESOURCES.map((res) => {
                   const key = makeBookingKey(res.id, selectedDate);
-                  const isBooked = (bookings[key]?.length || 0) > 0;
+                  const intervals = bookings[key] || [];
                   const isSelected = res.id === selectedResourceId;
+
+                  let isBookedForInterval = false;
+
+                  if (hasValidInterval) {
+                    const s = parseTimeToMinutes(startTime);
+                    const e = parseTimeToMinutes(endTime);
+
+                    isBookedForInterval = intervals.some((b) =>
+                      intervalsOverlap(
+                        s,
+                        e,
+                        parseTimeToMinutes(b.start),
+                        parseTimeToMinutes(b.end)
+                      )
+                    );
+                  }
+
+                  // if a valid interval is selected -> green/red based on that
+                  // otherwise -> green/red based on "any booking that day"
+                  const isBooked = hasValidInterval
+                    ? isBookedForInterval
+                    : intervals.length > 0;
 
                   return (
                     <button
@@ -497,7 +549,13 @@ function App() {
                       }}
                       onClick={() => setSelectedResourceId(res.id)}
                       title={`${res.label} • ${
-                        isBooked ? "Has bookings" : "No bookings"
+                        hasValidInterval
+                          ? isBooked
+                            ? "Not available in this interval"
+                            : "Available in this interval"
+                          : isBooked
+                          ? "Has bookings this day"
+                          : "No bookings this day"
                       }`}
                     >
                       <span className="resource-pin-label">
@@ -505,7 +563,19 @@ function App() {
                           ? "D"
                           : res.type === "room"
                           ? "R"
-                          : "·"}
+                          : res.type === "admin"
+                          ? "A"
+                          : res.type === "bub"
+                          ? "B"
+                          : res.type === "desk"
+                          ? "D"
+                          : res.type === "wellness"
+                          ? "W"
+                          : res.type === "bigroom"
+                          ? "B"
+                          : res.type === "beerpong"
+                          ? "BZ"
+                          : "."}
                       </span>
                     </button>
                   );
@@ -546,30 +616,38 @@ function App() {
                   />
                 </div>
 
-                {/* NEW: time interval inputs */}
+                {/* Time interval inputs */}
                 <div className="booking-section booking-times">
-                  <p className="booking-label">Time Interval</p>
-                  <div className="time-row">
-                    <div className="time-field">
-                      <label htmlFor="startTime">Start</label>
-                      <input
-                        id="startTime"
-                        type="time"
-                        value={startTime}
-                        onChange={(e) => setStartTime(e.target.value)}
-                      />
-                    </div>
-                    <div className="time-field">
-                      <label htmlFor="endTime">End</label>
-                      <input
-                        id="endTime"
-                        type="time"
-                        value={endTime}
-                        onChange={(e) => setEndTime(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                </div>
+  <div className="booking-times-header">
+    <span className="booking-label">Time interval</span>
+  </div>
+
+  <div className="time-row">
+    <div className="time-field">
+      <label htmlFor="startTime">Start</label>
+      <input
+        id="startTime"
+        type="time"
+        value={startTime}
+        onChange={(e) => setStartTime(e.target.value)}
+      />
+    </div>
+
+    <span className="time-separator">to</span>
+
+    <div className="time-field">
+      <label htmlFor="endTime">End</label>
+      <input
+        id="endTime"
+        type="time"
+        value={endTime}
+        onChange={(e) => setEndTime(e.target.value)}
+      />
+    </div>
+  </div>
+
+  
+</div>
 
                 <div className="booking-section">
                   <p className="booking-label">Status</p>
@@ -579,12 +657,16 @@ function App() {
                       (isSelectedBooked ? "status-booked" : "status-free")
                     }
                   >
-                    {isSelectedBooked
+                    {hasValidInterval
+                      ? isSelectedBooked
+                        ? "Booked in this time interval"
+                        : "Available in this time interval"
+                      : isSelectedBooked
                       ? "Has bookings for this date"
                       : "No bookings for this date"}
                   </p>
 
-                  {isSelectedBooked && (
+                  {bookingsForSelected.length > 0 && (
                     <ul className="booking-list">
                       {bookingsForSelected.map((b, idx) => (
                         <li key={idx}>
@@ -605,8 +687,9 @@ function App() {
                 </div>
 
                 <p className="hint">
-                  Choose a date and time interval (e.g. 18:00–20:00), then zoom
-                  in and click a desk or room to book it.
+                  Pick a date and time interval (e.g. 18:00–20:00). Pins turn
+                  green if they’re free for that interval and red if they’re
+                  busy.
                 </p>
               </>
             ) : (
