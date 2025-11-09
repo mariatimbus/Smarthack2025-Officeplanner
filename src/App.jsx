@@ -5,325 +5,329 @@ import floorplanImg from "./floorplan.jpeg"; // make sure name/path matches
 // Desks + rooms positions in % of image
 const RESOURCES = [
   // Top row desks right (adjust x/y as needed)
-  { id: "desk-t-01", type: "desk", label: "Desk T01", x: 29.5, y: 12 },
-  { id: "desk-t-02", type: "desk", label: "Desk T02", x: 29.5, y: 16.5 },
-  { id: "desk-t-03", type: "desk", label: "Desk T03", x: 29.5, y: 21 },
+  { id: "desk-t-01", type: "desk", label: "Desk T01", x: 31.5, y: 12 },
+  { id: "desk-t-02", type: "desk", label: "Desk T02", x: 31.5, y: 16.5 },
+  { id: "desk-t-03", type: "desk", label: "Desk T03", x: 31.5, y: 21 },
 
-  { id: "desk-t-04", type: "desk", label: "Desk T04", x: 35, y: 12 },
-  { id: "desk-t-05", type: "desk", label: "Desk T05", x: 35, y: 16.5 },
-  { id: "desk-t-06", type: "desk", label: "Desk T06", x: 35, y: 21 },
+  { id: "desk-t-04", type: "desk", label: "Desk T04", x: 37, y: 12 },
+  { id: "desk-t-05", type: "desk", label: "Desk T05", x: 37, y: 16.5 },
+  { id: "desk-t-06", type: "desk", label: "Desk T06", x: 37, y: 21 },
 
-  { id: "desk-t-07", type: "desk", label: "Desk T07", x: 37, y: 12 },
-  { id: "desk-t-08", type: "desk", label: "Desk T08", x: 37, y: 16.5 },
-  { id: "desk-t-09", type: "desk", label: "Desk T09", x: 37, y: 21 },
+  { id: "desk-t-07", type: "desk", label: "Desk T07", x: 39, y: 12 },
+  { id: "desk-t-08", type: "desk", label: "Desk T08", x: 39, y: 16.5 },
+  { id: "desk-t-09", type: "desk", label: "Desk T09", x: 39, y: 21 },
 
-  { id: "desk-t-10", type: "desk", label: "Desk T10", x: 42.5, y: 12 },
-  { id: "desk-t-11", type: "desk", label: "Desk T11", x: 42.5, y: 16.5 },
-  { id: "desk-t-12", type: "desk", label: "Desk T12", x: 42.5, y: 21 },
+  { id: "desk-t-10", type: "desk", label: "Desk T10", x: 44.5, y: 12 },
+  { id: "desk-t-11", type: "desk", label: "Desk T11", x: 44.5, y: 16.5 },
+  { id: "desk-t-12", type: "desk", label: "Desk T12", x: 44.5, y: 21 },
 
-  { id: "desk-t-13", type: "desk", label: "Desk T13", x: 44.5, y: 12 },
-  { id: "desk-t-14", type: "desk", label: "Desk T14", x: 44.5, y: 16.5 },
-  { id: "desk-t-15", type: "desk", label: "Desk T15", x: 44.5, y: 21 },
+  { id: "desk-t-13", type: "desk", label: "Desk T13", x: 46.5, y: 12 },
+  { id: "desk-t-14", type: "desk", label: "Desk T14", x: 46.5, y: 16.5 },
+  { id: "desk-t-15", type: "desk", label: "Desk T15", x: 46.5, y: 21 },
 
-  { id: "desk-t-16", type: "desk", label: "Desk T16", x: 49.5, y: 12 },
-  { id: "desk-t-17", type: "desk", label: "Desk T17", x: 49.5, y: 16.5 },
-  { id: "desk-t-18", type: "desk", label: "Desk T18", x: 49.5, y: 21 },
+  { id: "desk-t-16", type: "desk", label: "Desk T16", x: 52.5, y: 12 },
+  { id: "desk-t-17", type: "desk", label: "Desk T17", x: 52.5, y: 16.5 },
+  { id: "desk-t-18", type: "desk", label: "Desk T18", x: 52.5, y: 21 },
 
-  { id: "desk-t-19", type: "desk", label: "Desk T19", x: 51.5, y: 12 },
-  { id: "desk-t-20", type: "desk", label: "Desk T20", x: 51.5, y: 16.5 },
-  { id: "desk-t-21", type: "desk", label: "Desk T21", x: 51.5, y: 21 },
+  { id: "desk-t-19", type: "desk", label: "Desk T19", x: 54.5, y: 12 },
+  { id: "desk-t-20", type: "desk", label: "Desk T20", x: 54.5, y: 16.5 },
+  { id: "desk-t-21", type: "desk", label: "Desk T21", x: 54.5, y: 21 },
 
-  { id: "desk-t-22", type: "desk", label: "Desk T22", x: 57.5, y: 12 },
-  { id: "desk-t-23", type: "desk", label: "Desk T23", x: 57.5, y: 16.5 },
-  { id: "desk-t-24", type: "desk", label: "Desk T24", x: 57.5, y: 21 },
+  { id: "desk-t-22", type: "desk", label: "Desk T22", x: 60, y: 12 },
+  { id: "desk-t-23", type: "desk", label: "Desk T23", x: 60, y: 16.5 },
+  { id: "desk-t-24", type: "desk", label: "Desk T24", x: 60, y: 21 },
 
-  { id: "desk-t-25", type: "desk", label: "Desk T25", x: 59.5, y: 12 },
-  { id: "desk-t-26", type: "desk", label: "Desk T26", x: 59.5, y: 16.5 },
-  { id: "desk-t-27", type: "desk", label: "Desk T27", x: 59.5, y: 21 },
+  { id: "desk-t-25", type: "desk", label: "Desk T25", x: 62.5, y: 12 },
+  { id: "desk-t-26", type: "desk", label: "Desk T26", x: 62.5, y: 16.5 },
+  { id: "desk-t-27", type: "desk", label: "Desk T27", x: 62.5, y: 21 },
 
-  { id: "desk-t-28", type: "desk", label: "Desk T28", x: 64.5, y: 12 },
-  { id: "desk-t-29", type: "desk", label: "Desk T29", x: 64.5, y: 16.5 },
-  { id: "desk-t-30", type: "desk", label: "Desk T30", x: 64.5, y: 21 },
+  { id: "desk-t-28", type: "desk", label: "Desk T28", x: 68, y: 12 },
+  { id: "desk-t-29", type: "desk", label: "Desk T29", x: 68, y: 16.5 },
+  { id: "desk-t-30", type: "desk", label: "Desk T30", x: 68, y: 21 },
 
-  { id: "desk-t-31", type: "desk", label: "Desk T31", x: 66.5, y: 12 },
-  { id: "desk-t-32", type: "desk", label: "Desk T32", x: 66.5, y: 16.5 },
-  { id: "desk-t-33", type: "desk", label: "Desk T33", x: 66.5, y: 21 },
+  { id: "desk-t-31", type: "desk", label: "Desk T31", x: 70, y: 12 },
+  { id: "desk-t-32", type: "desk", label: "Desk T32", x: 70, y: 16.5 },
+  { id: "desk-t-33", type: "desk", label: "Desk T33", x: 70, y: 21 },
 
-  { id: "desk-t-34", type: "desk", label: "Desk T34", x: 72, y: 12 },
-  { id: "desk-t-35", type: "desk", label: "Desk T35", x: 72, y: 16.5 },
-  { id: "desk-t-36", type: "desk", label: "Desk T36", x: 72, y: 21 },
+  { id: "desk-t-34", type: "desk", label: "Desk T34", x: 76, y: 12 },
+  { id: "desk-t-35", type: "desk", label: "Desk T35", x: 76, y: 16.5 },
+  { id: "desk-t-36", type: "desk", label: "Desk T36", x: 76, y: 21 },
 
-  { id: "desk-t-37", type: "desk", label: "Desk T37", x: 74, y: 12 },
-  { id: "desk-t-38", type: "desk", label: "Desk T38", x: 74, y: 16.5 },
-  { id: "desk-t-39", type: "desk", label: "Desk T39", x: 74, y: 21 },
+  { id: "desk-t-37", type: "desk", label: "Desk T37", x: 78, y: 12 },
+  { id: "desk-t-38", type: "desk", label: "Desk T38", x: 78, y: 16.5 },
+  { id: "desk-t-39", type: "desk", label: "Desk T39", x: 78, y: 21 },
 
-  { id: "desk-t-40", type: "desk", label: "Desk T40", x: 79, y: 12 },
-  { id: "desk-t-41", type: "desk", label: "Desk T41", x: 79, y: 16.5 },
-  { id: "desk-t-42", type: "desk", label: "Desk T42", x: 79, y: 21 },
+  { id: "desk-t-40", type: "desk", label: "Desk T40", x: 84, y: 12 },
+  { id: "desk-t-41", type: "desk", label: "Desk T41", x: 84, y: 16.5 },
+  { id: "desk-t-42", type: "desk", label: "Desk T42", x: 84, y: 21 },
 
-  { id: "desk-t-43", type: "desk", label: "Desk T43", x: 81.5, y: 12 },
-  { id: "desk-t-44", type: "desk", label: "Desk T44", x: 81.5, y: 16.5 },
-  { id: "desk-t-45", type: "desk", label: "Desk T45", x: 81.5, y: 21 },
+  { id: "desk-t-43", type: "desk", label: "Desk T43", x: 85.8, y: 12 },
+  { id: "desk-t-44", type: "desk", label: "Desk T44", x: 85.8, y: 16.5 },
+  { id: "desk-t-45", type: "desk", label: "Desk T45", x: 85.8, y: 21 },
 
-  { id: "desk-t-46", type: "desk", label: "Desk T46", x: 87, y: 12 },
-  { id: "desk-t-47", type: "desk", label: "Desk T47", x: 87, y: 16.5 },
-  { id: "desk-t-48", type: "desk", label: "Desk T48", x: 87, y: 21 },
+  { id: "desk-t-46", type: "desk", label: "Desk T46", x: 92, y: 12 },
+  { id: "desk-t-47", type: "desk", label: "Desk T47", x: 92, y: 16.5 },
+  { id: "desk-t-48", type: "desk", label: "Desk T48", x: 92, y: 21 },
 
   //top row desks left
-  { id: "desk-t-49", type: "desk", label: "Desk T49", x: 97, y: 12 },
-  { id: "desk-t-50", type: "desk", label: "Desk T50", x: 97, y: 16.5 },
-  { id: "desk-t-51", type: "desk", label: "Desk T51", x: 97, y: 21 },
+   { id: "desk-t-49", type: "desk", label: "Desk T49", x: 103, y: 12 },
+  { id: "desk-t-50", type: "desk", label: "Desk T50", x: 103, y: 16.5 },
+  { id: "desk-t-51", type: "desk", label: "Desk T51", x: 103, y: 21 },
 
-  { id: "desk-t-52", type: "desk", label: "Desk T52", x: 102.5, y: 12 },
-  { id: "desk-t-53", type: "desk", label: "Desk T53", x: 102.5, y: 16.5 },
-  { id: "desk-t-54", type: "desk", label: "Desk T54", x: 102.5, y: 21 },
+  { id: "desk-t-52", type: "desk", label: "Desk T52", x: 108, y: 12 },
+  { id: "desk-t-53", type: "desk", label: "Desk T53", x: 108, y: 16.5 },
+  { id: "desk-t-54", type: "desk", label: "Desk T54", x: 108, y: 21 },
 
-  { id: "desk-t-55", type: "desk", label: "Desk T55", x: 104.5, y: 12 },
-  { id: "desk-t-56", type: "desk", label: "Desk T56", x: 104.5, y: 16.5 },
-  { id: "desk-t-57", type: "desk", label: "Desk T57", x: 104.5, y: 21 },
+  { id: "desk-t-55", type: "desk", label: "Desk T55", x: 110.5, y: 12 },
+  { id: "desk-t-56", type: "desk", label: "Desk T56", x: 110.5, y: 16.5 },
+  { id: "desk-t-57", type: "desk", label: "Desk T57", x: 110.5, y: 21 },
 
-  { id: "desk-t-58", type: "desk", label: "Desk T58", x: 110, y: 12 },
-  { id: "desk-t-59", type: "desk", label: "Desk T59", x: 110, y: 16.5 },
-  { id: "desk-t-60", type: "desk", label: "Desk T60", x: 110, y: 21 },
+  { id: "desk-t-58", type: "desk", label: "Desk T58", x: 116, y: 12 },
+  { id: "desk-t-59", type: "desk", label: "Desk T59", x: 116, y: 16.5 },
+  { id: "desk-t-60", type: "desk", label: "Desk T60", x: 116, y: 21 },
 
-  { id: "desk-t-61", type: "desk", label: "Desk T61", x: 112, y: 12 },
-  { id: "desk-t-62", type: "desk", label: "Desk T62", x: 112, y: 16.5 },
-  { id: "desk-t-63", type: "desk", label: "Desk T63", x: 112, y: 21 },
+  { id: "desk-t-61", type: "desk", label: "Desk T61", x: 118, y: 12 },
+  { id: "desk-t-62", type: "desk", label: "Desk T62", x: 118, y: 16.5 },
+  { id: "desk-t-63", type: "desk", label: "Desk T63", x: 118, y: 21 },
 
-  { id: "desk-t-64", type: "desk", label: "Desk T64", x: 117, y: 12 },
-  { id: "desk-t-65", type: "desk", label: "Desk T65", x: 117, y: 16.5 },
-  { id: "desk-t-66", type: "desk", label: "Desk T66", x: 117, y: 21 },
+  { id: "desk-t-64", type: "desk", label: "Desk T64", x: 123.5, y: 12 },
+  { id: "desk-t-65", type: "desk", label: "Desk T65", x: 123.5, y: 16.5 },
+  { id: "desk-t-66", type: "desk", label: "Desk T66", x: 123.5, y: 21 },
 
-  { id: "desk-t-67", type: "desk", label: "Desk T67", x: 119, y: 12 },
-  { id: "desk-t-68", type: "desk", label: "Desk T68", x: 119, y: 16.5 },
-  { id: "desk-t-69", type: "desk", label: "Desk T69", x: 119, y: 21 },
+  { id: "desk-t-67", type: "desk", label: "Desk T67", x: 125.5, y: 12 },
+  { id: "desk-t-68", type: "desk", label: "Desk T68", x: 125.5, y: 16.5 },
+  { id: "desk-t-69", type: "desk", label: "Desk T69", x: 125.5, y: 21 },
 
-  { id: "desk-t-70", type: "desk", label: "Desk T70", x: 125, y: 12 },
-  { id: "desk-t-71", type: "desk", label: "Desk T71", x: 125, y: 16.5 },
-  { id: "desk-t-72", type: "desk", label: "Desk T72", x: 125, y: 21 },
+  { id: "desk-t-70", type: "desk", label: "Desk T70", x: 131.5, y: 12 },
+  { id: "desk-t-71", type: "desk", label: "Desk T71", x: 131.5, y: 16.5 },
+  { id: "desk-t-72", type: "desk", label: "Desk T72", x: 131.5, y: 21 },
 
-  { id: "desk-t-73", type: "desk", label: "Desk T73", x: 127, y: 12 },
-  { id: "desk-t-74", type: "desk", label: "Desk T74", x: 127, y: 16.5 },
-  { id: "desk-t-75", type: "desk", label: "Desk T75", x: 127, y: 21 },
+  { id: "desk-t-73", type: "desk", label: "Desk T73", x: 134, y: 12 },
+  { id: "desk-t-74", type: "desk", label: "Desk T74", x: 134, y: 16.5 },
+  { id: "desk-t-75", type: "desk", label: "Desk T75", x: 134, y: 21 },
 
-  { id: "desk-t-76", type: "desk", label: "Desk T76", x: 132, y: 12 },
-  { id: "desk-t-77", type: "desk", label: "Desk T77", x: 132, y: 16.5 },
-  { id: "desk-t-78", type: "desk", label: "Desk T78", x: 132, y: 21 },
+  { id: "desk-t-76", type: "desk", label: "Desk T76", x: 139, y: 12 },
+  { id: "desk-t-77", type: "desk", label: "Desk T77", x: 139, y: 16.5 },
+  { id: "desk-t-78", type: "desk", label: "Desk T78", x: 139, y: 21 },
 
-  { id: "desk-t-79", type: "desk", label: "Desk T79", x: 134, y: 12 },
-  { id: "desk-t-80", type: "desk", label: "Desk T80", x: 134, y: 16.5 },
-  { id: "desk-t-81", type: "desk", label: "Desk T81", x: 134, y: 21 },
+  { id: "desk-t-79", type: "desk", label: "Desk T79", x: 141.5, y: 12 },
+  { id: "desk-t-80", type: "desk", label: "Desk T80", x: 141.5, y: 16.5 },
+  { id: "desk-t-81", type: "desk", label: "Desk T81", x: 141.5, y: 21 },
 
-  { id: "desk-t-82", type: "desk", label: "Desk T82", x: 139.5, y: 12 },
-  { id: "desk-t-83", type: "desk", label: "Desk T83", x: 139.5, y: 16.5 },
-  { id: "desk-t-84", type: "desk", label: "Desk T84", x: 139.5, y: 21 },
+  { id: "desk-t-82", type: "desk", label: "Desk T82", x: 147.5, y: 12 },
+  { id: "desk-t-83", type: "desk", label: "Desk T83", x: 147.5, y: 16.5 },
+  { id: "desk-t-84", type: "desk", label: "Desk T84", x: 147.5, y: 21 },
 
-  { id: "desk-t-85", type: "desk", label: "Desk T85", x: 141.5, y: 12 },
-  { id: "desk-t-86", type: "desk", label: "Desk T86", x: 141.5, y: 16.5 },
-  { id: "desk-t-87", type: "desk", label: "Desk T87", x: 141.5, y: 21 },
+  { id: "desk-t-85", type: "desk", label: "Desk T85", x: 149.5, y: 12 },
+  { id: "desk-t-86", type: "desk", label: "Desk T86", x: 149.5, y: 16.5 },
+  { id: "desk-t-87", type: "desk", label: "Desk T87", x: 149.5, y: 21 },
 
-  { id: "desk-t-88", type: "desk", label: "Desk T88", x: 146.5, y: 12 },
-  { id: "desk-t-89", type: "desk", label: "Desk T89", x: 146.5, y: 16.5 },
-  { id: "desk-t-90", type: "desk", label: "Desk T90", x: 146.5, y: 21 },
+  { id: "desk-t-88", type: "desk", label: "Desk T88", x: 155, y: 12 },
+  { id: "desk-t-89", type: "desk", label: "Desk T89", x: 155, y: 16.5 },
+  { id: "desk-t-90", type: "desk", label: "Desk T90", x: 155, y: 21 },
 
-  { id: "desk-t-91", type: "desk", label: "Desk T91", x: 149, y: 12 },
-  { id: "desk-t-92", type: "desk", label: "Desk T92", x: 149, y: 16.5 },
-  { id: "desk-t-93", type: "desk", label: "Desk T93", x: 149, y: 21 },
+  { id: "desk-t-91", type: "desk", label: "Desk T91", x: 157, y: 12 },
+  { id: "desk-t-92", type: "desk", label: "Desk T92", x: 157, y: 16.5 },
+  { id: "desk-t-93", type: "desk", label: "Desk T93", x: 157, y: 21 },
 
-  { id: "desk-t-94", type: "desk", label: "Desk T94", x: 154.5, y: 12 },
-  { id: "desk-t-95", type: "desk", label: "Desk T95", x: 154.5, y: 16.5 },
-  { id: "desk-t-96", type: "desk", label: "Desk T96", x: 154.5, y: 21 },
+  { id: "desk-t-94", type: "desk", label: "Desk T94", x: 163, y: 12 },
+  { id: "desk-t-95", type: "desk", label: "Desk T95", x: 163, y: 16.5 },
+  { id: "desk-t-96", type: "desk", label: "Desk T96", x: 163, y: 21 },
 
-  { id: "desk-t-97", type: "desk", label: "Desk T97", x: 156.5, y: 12 },
-  { id: "desk-t-98", type: "desk", label: "Desk T98", x: 156.5, y: 16.5 },
-  { id: "desk-t-99", type: "desk", label: "Desk T99", x: 156.5, y: 21 },
+  { id: "desk-t-97", type: "desk", label: "Desk T97", x: 165, y: 12 },
+  { id: "desk-t-98", type: "desk", label: "Desk T98", x: 165, y: 16.5 },
+  { id: "desk-t-99", type: "desk", label: "Desk T99", x: 165, y: 21 },
 
-  { id: "desk-t-100", type: "desk", label: "Desk T100", x: 161.5, y: 12 },
-  { id: "desk-t-101", type: "desk", label: "Desk T101", x: 161.5, y: 16.5 },
-  { id: "desk-t-102", type: "desk", label: "Desk T102", x: 161.5, y: 21 },
+  { id: "desk-t-100", type: "desk", label: "Desk T100", x: 170.5, y: 12 },
+  { id: "desk-t-101", type: "desk", label: "Desk T101", x: 170.5, y: 16.5 },
+  { id: "desk-t-102", type: "desk", label: "Desk T102", x: 170.5, y: 21 },
 
-  { id: "desk-t-103", type: "desk", label: "Desk T103", x: 163.5, y: 12 },
-  { id: "desk-t-104", type: "desk", label: "Desk T104", x: 163.5, y: 16.5 },
-  { id: "desk-t-105", type: "desk", label: "Desk T105", x: 163.5, y: 21 },
+  { id: "desk-t-103", type: "desk", label: "Desk T103", x: 172.5, y: 12 },
+  { id: "desk-t-104", type: "desk", label: "Desk T104", x: 172.5, y: 16.5 },
+  { id: "desk-t-105", type: "desk", label: "Desk T105", x: 172.5, y: 21 },
 
-  { id: "desk-t-106", type: "desk", label: "Desk T106", x: 169, y: 12 },
-  { id: "desk-t-107", type: "desk", label: "Desk T107", x: 169, y: 16.5 },
-  { id: "desk-t-108", type: "desk", label: "Desk T108", x: 169, y: 21 },
+  { id: "desk-t-106", type: "desk", label: "Desk T106", x: 178.5, y: 12 },
+  { id: "desk-t-107", type: "desk", label: "Desk T107", x: 178.5, y: 16.5 },
+  { id: "desk-t-108", type: "desk", label: "Desk T108", x: 178.5, y: 21 },
 
-  { id: "desk-b-01", type: "desk", label: "Desk B01", x: 29.5, y: 79.5 },
-  { id: "desk-b-02", type: "desk", label: "Desk B02", x: 29.5, y: 84 },
-  { id: "desk-b-03", type: "desk", label: "Desk B03", x: 29.5, y: 89 },
+  // Bottom row desks right
+    { id: "desk-b-01", type: "desk", label: "Desk B01", x: 31.5, y: 79.5 },
+  { id: "desk-b-02", type: "desk", label: "Desk B02", x: 31.5, y: 84 },
+  { id: "desk-b-03", type: "desk", label: "Desk B03", x: 31.5, y: 89 },
 
-  { id: "desk-b-04", type: "desk", label: "Desk B04", x: 35, y: 79.5 },
-  { id: "desk-b-05", type: "desk", label: "Desk B05", x: 35, y: 84 },
-  { id: "desk-b-06", type: "desk", label: "Desk B06", x: 35, y: 89 },
+  { id: "desk-b-04", type: "desk", label: "Desk B04", x: 37, y: 79.5 },
+  { id: "desk-b-05", type: "desk", label: "Desk B05", x: 37, y: 84 },
+  { id: "desk-b-06", type: "desk", label: "Desk B06", x: 37, y: 89 },
 
-  { id: "desk-b-07", type: "desk", label: "Desk B07", x: 37, y: 79.5 },
-  { id: "desk-b-08", type: "desk", label: "Desk B08", x: 37, y: 84 },
-  { id: "desk-b-09", type: "desk", label: "Desk B09", x: 37, y: 89 },
+  { id: "desk-b-07", type: "desk", label: "Desk B07", x: 39, y: 79.5 },
+  { id: "desk-b-08", type: "desk", label: "Desk B08", x: 39, y: 84 },
+  { id: "desk-b-09", type: "desk", label: "Desk B09", x: 39, y: 89 },
 
-  { id: "desk-b-10", type: "desk", label: "Desk B10", x: 42.5, y: 79.5 },
-  { id: "desk-b-11", type: "desk", label: "Desk B11", x: 42.5, y: 84 },
-  { id: "desk-b-12", type: "desk", label: "Desk B12", x: 42.5, y: 89 },
+  { id: "desk-b-10", type: "desk", label: "Desk B10", x: 44.5, y: 79.5 },
+  { id: "desk-b-11", type: "desk", label: "Desk B11", x: 44.5, y: 84 },
+  { id: "desk-b-12", type: "desk", label: "Desk B12", x: 44.5, y: 89 },
 
-  { id: "desk-b-13", type: "desk", label: "Desk B13", x: 44.5, y: 79.5 },
-  { id: "desk-b-14", type: "desk", label: "Desk B14", x: 44.5, y: 84 },
-  { id: "desk-b-15", type: "desk", label: "Desk B15", x: 44.5, y: 89 },
+  { id: "desk-b-13", type: "desk", label: "Desk B13", x: 46.5, y: 79.5 },
+  { id: "desk-b-14", type: "desk", label: "Desk B14", x: 46.5, y: 84 },
+  { id: "desk-b-15", type: "desk", label: "Desk B15", x: 46.5, y: 89 },
 
-  { id: "desk-b-16", type: "desk", label: "Desk B16", x: 49.5, y: 79.5 },
-  { id: "desk-b-17", type: "desk", label: "Desk B17", x: 49.5, y: 84 },
-  { id: "desk-b-18", type: "desk", label: "Desk B18", x: 49.5, y: 89 },
+  { id: "desk-b-16", type: "desk", label: "Desk B16", x: 52.5, y: 79.5 },
+  { id: "desk-b-17", type: "desk", label: "Desk B17", x: 52.5, y: 84 },
+  { id: "desk-b-18", type: "desk", label: "Desk B18", x: 52.5, y: 89 },
 
-  { id: "desk-b-19", type: "desk", label: "Desk B19", x: 51.5, y: 79.5 },
-  { id: "desk-b-20", type: "desk", label: "Desk B20", x: 51.5, y: 84 },
-  { id: "desk-b-21", type: "desk", label: "Desk B21", x: 51.5, y: 89 },
+  { id: "desk-b-19", type: "desk", label: "Desk B19", x: 54.5, y: 79.5 },
+  { id: "desk-b-20", type: "desk", label: "Desk B20", x: 54.5, y: 84 },
+  { id: "desk-b-21", type: "desk", label: "Desk B21", x: 54.5, y: 89 },
 
-  { id: "desk-b-22", type: "desk", label: "Desk B22", x: 57.5, y: 79.5 },
-  { id: "desk-b-23", type: "desk", label: "Desk B23", x: 57.5, y: 84 },
-  { id: "desk-b-24", type: "desk", label: "Desk B24", x: 57.5, y: 89 },
+  { id: "desk-b-22", type: "desk", label: "Desk B22", x: 60, y: 79.5 },
+  { id: "desk-b-23", type: "desk", label: "Desk B23", x: 60, y: 84 },
+  { id: "desk-b-24", type: "desk", label: "Desk B24", x: 60, y: 89 },
 
-  { id: "desk-b-25", type: "desk", label: "Desk B25", x: 59.5, y: 79.5 },
-  { id: "desk-b-26", type: "desk", label: "Desk B26", x: 59.5, y: 84 },
-  { id: "desk-b-27", type: "desk", label: "Desk B27", x: 59.5, y: 89 },
+  { id: "desk-b-25", type: "desk", label: "Desk B25", x: 62.5, y: 79.5 },
+  { id: "desk-b-26", type: "desk", label: "Desk B26", x: 62.5, y: 84 },
+  { id: "desk-b-27", type: "desk", label: "Desk B27", x: 62.5, y: 89 },
 
-  { id: "desk-b-28", type: "desk", label: "Desk B28", x: 64.5, y: 79.5 },
-  { id: "desk-b-29", type: "desk", label: "Desk B29", x: 64.5, y: 84 },
-  { id: "desk-b-30", type: "desk", label: "Desk B30", x: 64.5, y: 89 },
+  { id: "desk-b-28", type: "desk", label: "Desk B28", x: 68, y: 79.5 },
+  { id: "desk-b-29", type: "desk", label: "Desk B29", x: 68, y: 84 },
+  { id: "desk-b-30", type: "desk", label: "Desk B30", x: 68, y: 89 },
 
-  { id: "desk-b-31", type: "desk", label: "Desk B31", x: 66.5, y: 79.5 },
-  { id: "desk-b-32", type: "desk", label: "Desk B32", x: 66.5, y: 84 },
-  { id: "desk-b-33", type: "desk", label: "Desk B33", x: 66.5, y: 89 },
+  { id: "desk-b-31", type: "desk", label: "Desk B31", x: 70, y: 79.5 },
+  { id: "desk-b-32", type: "desk", label: "Desk B32", x: 70, y: 84 },
+  { id: "desk-b-33", type: "desk", label: "Desk B33", x: 70, y: 89 },
 
-  { id: "desk-b-34", type: "desk", label: "Desk B34", x: 72, y: 79.5 },
-  { id: "desk-b-35", type: "desk", label: "Desk B35", x: 72, y: 84 },
-  { id: "desk-b-36", type: "desk", label: "Desk B36", x: 72, y: 89 },
+  { id: "desk-b-34", type: "desk", label: "Desk B34", x: 76, y: 79.5 },
+  { id: "desk-b-35", type: "desk", label: "Desk B35", x: 76, y: 84 },
+  { id: "desk-b-36", type: "desk", label: "Desk B36", x: 76, y: 89 },
 
-  { id: "desk-b-37", type: "desk", label: "Desk B37", x: 74, y: 79.5 },
-  { id: "desk-b-38", type: "desk", label: "Desk B38", x: 74, y: 84 },
-  { id: "desk-b-39", type: "desk", label: "Desk B39", x: 74, y: 89 },
+  { id: "desk-b-37", type: "desk", label: "Desk B37", x: 78, y: 79.5 },
+  { id: "desk-b-38", type: "desk", label: "Desk B38", x: 78, y: 84 },
+  { id: "desk-b-39", type: "desk", label: "Desk B39", x: 78, y: 89 },
 
-  { id: "desk-b-40", type: "desk", label: "Desk B40", x: 79, y: 79.5 },
-  { id: "desk-b-41", type: "desk", label: "Desk B41", x: 79, y: 84 },
-  { id: "desk-b-42", type: "desk", label: "Desk B42", x: 79, y: 89 },
+  { id: "desk-b-40", type: "desk", label: "Desk B40", x: 84, y: 79.5 },
+  { id: "desk-b-41", type: "desk", label: "Desk B41", x: 84, y: 84 },
+  { id: "desk-b-42", type: "desk", label: "Desk B42", x: 84, y: 89 },
 
-  { id: "desk-b-43", type: "desk", label: "Desk B43", x: 81.5, y: 79.5 },
-  { id: "desk-b-44", type: "desk", label: "Desk B44", x: 81.5, y: 84 },
-  { id: "desk-b-45", type: "desk", label: "Desk B45", x: 81.5, y: 89 },
+  { id: "desk-b-43", type: "desk", label: "Desk B43", x: 85.8, y: 79.5 },
+  { id: "desk-b-44", type: "desk", label: "Desk B44", x: 85.8, y: 84 },
+  { id: "desk-b-45", type: "desk", label: "Desk B45", x: 85.8, y: 89 },
 
-  { id: "desk-b-46", type: "desk", label: "Desk B46", x: 87, y: 79.5 },
-  { id: "desk-b-47", type: "desk", label: "Desk B47", x: 87, y: 84 },
-  { id: "desk-b-48", type: "desk", label: "Desk B48", x: 87, y: 89 },
+  { id: "desk-b-46", type: "desk", label: "Desk B46", x: 92, y: 79.5 },
+  { id: "desk-b-47", type: "desk", label: "Desk B47", x: 92, y: 84 },
+  { id: "desk-b-48", type: "desk", label: "Desk B48", x: 92, y: 89 },
 
-  { id: "desk-b-49", type: "desk", label: "Desk B49", x: 97, y: 79.5 },
-  { id: "desk-b-50", type: "desk", label: "Desk B50", x: 97, y: 84 },
-  { id: "desk-b-51", type: "desk", label: "Desk B51", x: 97, y: 89 },
+  { id: "desk-b-49", type: "desk", label: "Desk B49", x: 103, y: 79.5 },
+  { id: "desk-b-50", type: "desk", label: "Desk B50", x: 103, y: 84 },
+  { id: "desk-b-51", type: "desk", label: "Desk B51", x: 103, y: 89 },
 
-  { id: "desk-b-52", type: "desk", label: "Desk B52", x: 102.5, y: 79.5 },
-  { id: "desk-b-53", type: "desk", label: "Desk B53", x: 102.5, y: 84 },
-  { id: "desk-b-54", type: "desk", label: "Desk B54", x: 102.5, y: 89 },
+  { id: "desk-b-52", type: "desk", label: "Desk B52", x: 108, y: 79.5 },
+  { id: "desk-b-53", type: "desk", label: "Desk B53", x: 108, y: 84 },
+  { id: "desk-b-54", type: "desk", label: "Desk B54", x: 108, y: 89 },
 
-  { id: "desk-b-55", type: "desk", label: "Desk B55", x: 104.5, y: 79.5 },
-  { id: "desk-b-56", type: "desk", label: "Desk B56", x: 104.5, y: 84 },
-  { id: "desk-b-57", type: "desk", label: "Desk B57", x: 104.5, y: 89 },
+  { id: "desk-b-55", type: "desk", label: "Desk B55", x: 110.5, y: 79.5 },
+  { id: "desk-b-56", type: "desk", label: "Desk B56", x: 110.5, y: 84 },
+  { id: "desk-b-57", type: "desk", label: "Desk B57", x: 110.5, y: 89 },
 
-  { id: "desk-b-58", type: "desk", label: "Desk B58", x: 110, y: 79.5 },
-  { id: "desk-b-59", type: "desk", label: "Desk B59", x: 110, y: 84 },
-  { id: "desk-b-60", type: "desk", label: "Desk B60", x: 110, y: 89 },
+  { id: "desk-b-58", type: "desk", label: "Desk B58", x: 116, y: 79.5 },
+  { id: "desk-b-59", type: "desk", label: "Desk B59", x: 116, y: 84 },
+  { id: "desk-b-60", type: "desk", label: "Desk B60", x: 116, y: 89 },
 
-  { id: "desk-b-61", type: "desk", label: "Desk B61", x: 112, y: 79.5 },
-  { id: "desk-b-62", type: "desk", label: "Desk B62", x: 112, y: 84 },
-  { id: "desk-b-63", type: "desk", label: "Desk B63", x: 112, y: 89 },
+  { id: "desk-b-61", type: "desk", label: "Desk B61", x: 118, y: 79.5 },
+  { id: "desk-b-62", type: "desk", label: "Desk B62", x: 118, y: 84 },
+  { id: "desk-b-63", type: "desk", label: "Desk B63", x: 118, y: 89 },
 
-  { id: "desk-b-64", type: "desk", label: "Desk B64", x: 117, y: 79.5 },
-  { id: "desk-b-65", type: "desk", label: "Desk B65", x: 117, y: 84 },
-  { id: "desk-b-66", type: "desk", label: "Desk B66", x: 117, y: 89 },
+  { id: "desk-b-64", type: "desk", label: "Desk B64", x: 123.5, y: 79.5 },
+  { id: "desk-b-65", type: "desk", label: "Desk B65", x: 123.5, y: 84 },
+  { id: "desk-b-66", type: "desk", label: "Desk B66", x: 123.5, y: 89 },
 
-  { id: "desk-b-67", type: "desk", label: "Desk B67", x: 119, y: 79.5 },
-  { id: "desk-b-68", type: "desk", label: "Desk B68", x: 119, y: 84 },
-  { id: "desk-b-69", type: "desk", label: "Desk B69", x: 119, y: 89 },
+  { id: "desk-b-67", type: "desk", label: "Desk B67", x: 125.5, y: 79.5 },
+  { id: "desk-b-68", type: "desk", label: "Desk B68", x: 125.5, y: 84 },
+  { id: "desk-b-69", type: "desk", label: "Desk B69", x: 125.5, y: 89 },
 
-  { id: "desk-b-70", type: "desk", label: "Desk B70", x: 125, y: 79.5 },
-  { id: "desk-b-71", type: "desk", label: "Desk B71", x: 125, y: 84 },
-  { id: "desk-b-72", type: "desk", label: "Desk B72", x: 125, y: 89 },
+  { id: "desk-b-70", type: "desk", label: "Desk B70", x: 131.5, y: 79.5 },
+  { id: "desk-b-71", type: "desk", label: "Desk B71", x: 131.5, y: 84 },
+  { id: "desk-b-72", type: "desk", label: "Desk B72", x: 131.5, y: 89 },
 
-  { id: "desk-b-73", type: "desk", label: "Desk B73", x: 127, y: 79.5 },
-  { id: "desk-b-74", type: "desk", label: "Desk B74", x: 127, y: 84 },
-  { id: "desk-b-75", type: "desk", label: "Desk B75", x: 127, y: 89 },
+  { id: "desk-b-73", type: "desk", label: "Desk B73", x: 134, y: 79.5 },
+  { id: "desk-b-74", type: "desk", label: "Desk B74", x: 134, y: 84 },
+  { id: "desk-b-75", type: "desk", label: "Desk B75", x: 134, y: 89 },
 
-  { id: "desk-b-76", type: "desk", label: "Desk B76", x: 132, y: 79.5 },
-  { id: "desk-b-77", type: "desk", label: "Desk B77", x: 132, y: 84 },
-  { id: "desk-b-78", type: "desk", label: "Desk B78", x: 132, y: 89 },
+  { id: "desk-b-76", type: "desk", label: "Desk B76", x: 139, y: 79.5 },
+  { id: "desk-b-77", type: "desk", label: "Desk B77", x: 139, y: 84 },
+  { id: "desk-b-78", type: "desk", label: "Desk B78", x: 139, y: 89 },
 
-  { id: "desk-b-79", type: "desk", label: "Desk B79", x: 134, y: 79.5 },
-  { id: "desk-b-80", type: "desk", label: "Desk B80", x: 134, y: 84 },
-  { id: "desk-b-81", type: "desk", label: "Desk B81", x: 134, y: 89 },
+  { id: "desk-b-79", type: "desk", label: "Desk B79", x: 141.5, y: 79.5 },
+  { id: "desk-b-80", type: "desk", label: "Desk B80", x: 141.5, y: 84 },
+  { id: "desk-b-81", type: "desk", label: "Desk B81", x: 141.5, y: 89 },
 
-  { id: "desk-b-82", type: "desk", label: "Desk B82", x: 139.5, y: 79.5 },
-  { id: "desk-b-83", type: "desk", label: "Desk B83", x: 139.5, y: 84 },
-  { id: "desk-b-84", type: "desk", label: "Desk B84", x: 139.5, y: 89 },
+  { id: "desk-b-82", type: "desk", label: "Desk B82", x: 147.5, y: 79.5 },
+  { id: "desk-b-83", type: "desk", label: "Desk B83", x: 147.5, y: 84 },
+  { id: "desk-b-84", type: "desk", label: "Desk B84", x: 147.5, y: 89 },
 
-  { id: "desk-b-85", type: "desk", label: "Desk B85", x: 141.5, y: 79.5 },
-  { id: "desk-b-86", type: "desk", label: "Desk B86", x: 141.5, y: 84 },
-  { id: "desk-b-87", type: "desk", label: "Desk B87", x: 141.5, y: 89 },
+  { id: "desk-b-85", type: "desk", label: "Desk B85", x: 149.5, y: 79.5 },
+  { id: "desk-b-86", type: "desk", label: "Desk B86", x: 149.5, y: 84 },
+  { id: "desk-b-87", type: "desk", label: "Desk B87", x: 149.5, y: 89 },
 
-  { id: "desk-b-88", type: "desk", label: "Desk B88", x: 146.5, y: 79.5 },
-  { id: "desk-b-89", type: "desk", label: "Desk B89", x: 146.5, y: 84 },
-  { id: "desk-b-90", type: "desk", label: "Desk B90", x: 146.5, y: 89 },
+  { id: "desk-b-88", type: "desk", label: "Desk B88", x: 155, y: 79.5 },
+  { id: "desk-b-89", type: "desk", label: "Desk B89", x: 155, y: 84 },
+  { id: "desk-b-90", type: "desk", label: "Desk B90", x: 155, y: 89 },
 
-  { id: "desk-b-91", type: "desk", label: "Desk B91", x: 149, y: 79.5 },
-  { id: "desk-b-92", type: "desk", label: "Desk B92", x: 149, y: 84 },
-  { id: "desk-b-93", type: "desk", label: "Desk B93", x: 149, y: 89 },
+  { id: "desk-b-91", type: "desk", label: "Desk B91", x: 157, y: 79.5 },
+  { id: "desk-b-92", type: "desk", label: "Desk B92", x: 157, y: 84 },
+  { id: "desk-b-93", type: "desk", label: "Desk B93", x: 157, y: 89 },
 
-  { id: "desk-b-94", type: "desk", label: "Desk B94", x: 154.5, y: 79.5 },
-  { id: "desk-b-95", type: "desk", label: "Desk B95", x: 154.5, y: 84 },
-  { id: "desk-b-96", type: "desk", label: "Desk B96", x: 154.5, y: 89 },
+  { id: "desk-b-94", type: "desk", label: "Desk B94", x: 163, y: 79.5 },
+  { id: "desk-b-95", type: "desk", label: "Desk B95", x: 163, y: 84 },
+  { id: "desk-b-96", type: "desk", label: "Desk B96", x: 163, y: 89 },
 
-  { id: "desk-b-97", type: "desk", label: "Desk B97", x: 156.5, y: 79.5 },
-  { id: "desk-b-98", type: "desk", label: "Desk B98", x: 156.5, y: 84 },
-  { id: "desk-b-99", type: "desk", label: "Desk B99", x: 156.5, y: 89 },
+  { id: "desk-b-97", type: "desk", label: "Desk B97", x: 165, y: 79.5 },
+  { id: "desk-b-98", type: "desk", label: "Desk B98", x: 165, y: 84 },
+  { id: "desk-b-99", type: "desk", label: "Desk B99", x: 165, y: 89 },
 
-  { id: "desk-b-100", type: "desk", label: "Desk B100", x: 161.5, y: 79.5 },
-  { id: "desk-b-101", type: "desk", label: "Desk B101", x: 161.5, y: 84 },
-  { id: "desk-b-102", type: "desk", label: "Desk B102", x: 161.5, y: 89 },
+  { id: "desk-b-100", type: "desk", label: "Desk B100", x: 170.5, y: 79.5 },
+  { id: "desk-b-101", type: "desk", label: "Desk B101", x: 170.5, y: 84 },
+  { id: "desk-b-102", type: "desk", label: "Desk B102", x: 170.5, y: 89 },
 
-  { id: "desk-b-103", type: "desk", label: "Desk B103", x: 163.5, y: 79.5 },
-  { id: "desk-b-104", type: "desk", label: "Desk B104", x: 163.5, y: 84 },
-  { id: "desk-b-105", type: "desk", label: "Desk B105", x: 163.5, y: 89 },
+  { id: "desk-b-103", type: "desk", label: "Desk B103", x: 172.5, y: 79.5 },
+  { id: "desk-b-104", type: "desk", label: "Desk B104", x: 172.5, y: 84 },
+  { id: "desk-b-105", type: "desk", label: "Desk B105", x: 172.5, y: 89 },
 
-  { id: "desk-b-106", type: "desk", label: "Desk B106", x: 169, y: 79.5 },
-  { id: "desk-b-107", type: "desk", label: "Desk B107", x: 169, y: 84 },
-  { id: "desk-b-108", type: "desk", label: "Desk B108", x: 169, y: 89 },
+  { id: "desk-b-106", type: "desk", label: "Desk B106", x: 178.5, y: 79.5 },
+  { id: "desk-b-107", type: "desk", label: "Desk B107", x: 178.5, y: 84 },
+  { id: "desk-b-108", type: "desk", label: "Desk B108", x: 178.5, y: 89 },
+
+
 
   //big boss rooms
-  { id: "Admin-1", type: "admin", label: "Big Boss Office", x: 175, y: 17 },
-  { id: "Admin-2", type: "admin", label: "Big Boss Office", x: 175, y: 77.5 },
-  { id: "Admin-3", type: "admin", label: "Big Boss Office", x: 175, y: 94 },
+  { id: "Admin-1", type: "admin", label: "Big Boss Office", x: 185, y: 17 },
+  { id: "Admin-2", type: "admin", label: "Big Boss Office", x: 185, y: 77.5 },
+  { id: "Admin-3", type: "admin", label: "Big Boss Office", x: 185, y: 94 },
 
   // Meeting rooms on the right
-  { id: "Meeting-1", type: "room", label: "Meeting Room 1", x: 18, y: 11 },
-  { id: "Meeting-2", type: "room", label: "Meeting Room 2", x: 18, y: 23 },
-  { id: "Meeting-3", type: "room", label: "Meeting Room 3", x: 18, y: 84.5 },
-  { id: "Meeting-4", type: "room", label: "Meeting Room 4", x: 18, y: 90 },
-  { id: "Meeting-5", type: "room", label: "Meeting Room 5", x: 153.5, y: 59 },
-  { id: "Meeting-6", type: "room", label: "Meeting Room 6", x: 175, y: 32 },
+  { id: "Meeting-1", type: "room", label: "Meeting Room 1", x: 19, y: 11 },
+  { id: "Meeting-2", type: "room", label: "Meeting Room 2", x: 19, y: 23 },
+  { id: "Meeting-3", type: "room", label: "Meeting Room 3", x: 19, y: 84.5 },
+  { id: "Meeting-4", type: "room", label: "Meeting Room 4", x: 19, y: 90 },
+  { id: "Meeting-5", type: "room", label: "Meeting Room 5", x: 162, y: 59 },
+  { id: "Meeting-6", type: "room", label: "Meeting Room 6", x: 185, y: 32 },
 
   //bubbles
-  { id: "Bub-1", type: "bub", label: "Bubble Room 1", x: 26, y: 14 },
-  { id: "Bub-2", type: "bub", label: "Bubble Room 2", x: 92, y: 20 },
-  { id: "Bub-3", type: "bub", label: "Bubble Room 1", x: 26, y: 85.5 },
-  { id: "Bub-4", type: "bub", label: "Bubble Room 2", x: 92, y: 94 },
+  { id: "Bub-1", type: "bub", label: "Bubble Room 1", x: 27.5, y: 14 },
+  { id: "Bub-2", type: "bub", label: "Bubble Room 2", x: 97.5, y: 22.5 },
+  { id: "Bub-3", type: "bub", label: "Bubble Room 1", x: 27.5, y: 85.5 },
+  { id: "Bub-4", type: "bub", label: "Bubble Room 2", x: 97.5, y: 92 },
 
   //wellness rooms
-  { id: "Well-1", type: "wellness", label: "Wellness Room 1", x: 153.5, y: 40 },
-  { id: "Well-2", type: "wellness", label: "Wellness Room 2", x: 30, y: 50 },
+  { id: "Well-1", type: "wellness", label: "Wellness Room 1", x: 162, y: 40 },
+  { id: "Well-2", type: "wellness", label: "Wellness Room 2", x: 32, y: 50 },
 
   //bigroom
-  { id: "BigRoom-1", type: "bigroom", label: "Big Room 1", x: 162.5, y: 45 },
-  { id: "BigRoom-2", type: "bigroom", label: "Big Room 2", x: 173, y: 45 },
+  { id: "BigRoom-1", type: "bigroom", label: "Big Room 1", x: 171.5, y: 45 },
+  { id: "BigRoom-2", type: "bigroom", label: "Big Room 2", x: 182.5, y: 45 },
 
   //beerpong
-  { id: "Beerpong-1", type: "beerpong", label: "Beer Zone", x: 15.5, y: 48 },
+  { id: "Beerpong-1", type: "beerpong", label: "Beer Zone", x: 16.5, y: 48 },
 ];
+
 
 // key is resource+date
 function makeBookingKey(resourceId, dateStr) {
@@ -396,6 +400,12 @@ function App() {
       )
     );
   }, [bookingKeyForSelected, bookingsForSelected, hasValidInterval, startTime, endTime]);
+
+    const canBook =
+    !!selectedResource &&
+    !!selectedDate &&
+    hasValidInterval &&
+    !isSelectedBooked;
 
   const handleBook = () => {
     if (!selectedResource || !selectedDate) return;
@@ -678,18 +688,23 @@ function App() {
                 </div>
 
                 <div className="booking-actions">
-                  <button className="primary-btn" onClick={handleBook}>
-                    Book interval
-                  </button>
-                  <button className="secondary-btn" onClick={handleCancel}>
-                    Cancel this interval
-                  </button>
-                </div>
+                      <button
+                        className={`primary-btn ${!canBook ? "primary-btn--blocked" : ""}`}
+                        onClick={handleBook}
+                        disabled={!canBook}
+                      >
+                        Book interval
+                      </button>
+                      <button className="secondary-btn" onClick={handleCancel}>
+                        Cancel this interval
+                      </button>
+                    </div>
+
 
                 <p className="hint">
                   Pick a date and time interval (e.g. 18:00–20:00). Pins turn
                   green if they’re free for that interval and red if they’re
-                  busy.
+                  booked.
                 </p>
               </>
             ) : (
