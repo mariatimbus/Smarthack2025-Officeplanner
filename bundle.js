@@ -1084,7 +1084,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState2(initialState) {
+          function useState3(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1887,7 +1887,7 @@
           exports.useMemo = useMemo2;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
-          exports.useState = useState2;
+          exports.useState = useState3;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2383,9 +2383,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React3 = require_react();
+          var React4 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React3.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React4.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3992,7 +3992,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React3.Children.forEach(props.children, function(child) {
+                  React4.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -23582,14 +23582,50 @@
   });
 
   // src/main.jsx
-  var import_react2 = __toESM(require_react(), 1);
+  var import_react3 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
   // src/App.jsx
-  var import_react = __toESM(require_react(), 1);
+  var import_react2 = __toESM(require_react(), 1);
 
   // src/floorplan.jpeg
   var floorplan_default = "./floorplan-K7VRJZ66.jpeg";
+
+  // src/LoginPage.js
+  var import_react = __toESM(require_react(), 1);
+  function LoginPage({ onLogin }) {
+    const [username, setUsername] = (0, import_react.useState)("");
+    const [password, setPassword] = (0, import_react.useState)("");
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if (username.trim()) {
+        onLogin(username);
+      } else {
+        alert("Please enter a username.");
+      }
+    };
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "login-page" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "login-card" }, /* @__PURE__ */ import_react.default.createElement("form", { onSubmit: handleSubmit }, /* @__PURE__ */ import_react.default.createElement("h2", null, "Office Planner Login"), /* @__PURE__ */ import_react.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "username" }, "Username"), /* @__PURE__ */ import_react.default.createElement(
+      "input",
+      {
+        id: "username",
+        type: "text",
+        value: username,
+        onChange: (e) => setUsername(e.target.value),
+        placeholder: "Enter your name",
+        autoFocus: true
+      }
+    )), /* @__PURE__ */ import_react.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "password" }, "Password"), /* @__PURE__ */ import_react.default.createElement(
+      "input",
+      {
+        id: "password",
+        type: "password",
+        value: password,
+        onChange: (e) => setPassword(e.target.value),
+        placeholder: "(any password)"
+      }
+    )), /* @__PURE__ */ import_react.default.createElement("button", { type: "submit", className: "primary-btn" }, "Login"))));
+  }
+  var LoginPage_default = LoginPage;
 
   // src/App.jsx
   var RESOURCES = [
@@ -23899,42 +23935,43 @@
     return result;
   }
   function App() {
-    const [selectedResourceId, setSelectedResourceId] = (0, import_react.useState)(
+    const [currentUser, setCurrentUser] = (0, import_react2.useState)(null);
+    const [selectedResourceId, setSelectedResourceId] = (0, import_react2.useState)(
       RESOURCES[0]?.id || null
     );
-    const [selectedDate, setSelectedDate] = (0, import_react.useState)(
+    const [selectedDate, setSelectedDate] = (0, import_react2.useState)(
       (/* @__PURE__ */ new Date()).toISOString().slice(0, 10)
       // YYYY-MM-DD
     );
-    const [startTime, setStartTime] = (0, import_react.useState)("18:00");
-    const [endTime, setEndTime] = (0, import_react.useState)("20:00");
-    const [zoom, setZoom] = (0, import_react.useState)(1);
-    const [selectedDepartment, setSelectedDepartment] = (0, import_react.useState)("");
-    const [bookings, setBookings] = (0, import_react.useState)({});
-    const selectedResource = (0, import_react.useMemo)(
+    const [startTime, setStartTime] = (0, import_react2.useState)("18:00");
+    const [endTime, setEndTime] = (0, import_react2.useState)("20:00");
+    const [zoom, setZoom] = (0, import_react2.useState)(1);
+    const [selectedDepartment, setSelectedDepartment] = (0, import_react2.useState)("");
+    const [bookings, setBookings] = (0, import_react2.useState)({});
+    const selectedResource = (0, import_react2.useMemo)(
       () => RESOURCES.find((r) => r.id === selectedResourceId),
       [selectedResourceId]
     );
     const isRequestType = selectedResource && ["room", "wellness", "admin", "bub"].includes(selectedResource.type);
     const primaryButtonLabel = isRequestType ? "Request" : "Book interval";
-    const bookingKeyForSelected = (0, import_react.useMemo)(() => {
+    const bookingKeyForSelected = (0, import_react2.useMemo)(() => {
       if (!selectedResource) return null;
       return makeBookingKey(selectedResource.id, selectedDate);
     }, [selectedResource, selectedDate]);
-    const userBookingsForSelected = (0, import_react.useMemo)(() => {
+    const userBookingsForSelected = (0, import_react2.useMemo)(() => {
       if (!bookingKeyForSelected) return [];
       return bookings[bookingKeyForSelected] || [];
     }, [bookings, bookingKeyForSelected]);
-    const deptBookingsForSelected = (0, import_react.useMemo)(() => {
+    const deptBookingsForSelected = (0, import_react2.useMemo)(() => {
       if (!selectedResource) return [];
       return getDeptBookingsForResource(selectedResource.id);
     }, [selectedResource]);
-    const bookingsForSelected = (0, import_react.useMemo)(
+    const bookingsForSelected = (0, import_react2.useMemo)(
       () => [...userBookingsForSelected, ...deptBookingsForSelected],
       [userBookingsForSelected, deptBookingsForSelected]
     );
     const hasValidInterval = startTime && endTime && parseTimeToMinutes(endTime) > parseTimeToMinutes(startTime);
-    const isSelectedBooked = (0, import_react.useMemo)(() => {
+    const isSelectedBooked = (0, import_react2.useMemo)(() => {
       if (!hasValidInterval) {
         return bookingsForSelected.length > 0;
       }
@@ -23950,6 +23987,9 @@
       );
     }, [bookingsForSelected, hasValidInterval, startTime, endTime]);
     const canBook = !!selectedResource && !!selectedDate && hasValidInterval && !isSelectedBooked;
+    const handleLogin = (username) => {
+      setCurrentUser(username);
+    };
     const handleBook = () => {
       if (!selectedResource || !selectedDate) return;
       if (!startTime || !endTime) {
@@ -23978,7 +24018,7 @@
         alert("This resource is already booked in that time interval.");
         return;
       }
-      const userName = "You";
+      const userName = currentUser;
       setBookings((prev) => ({
         ...prev,
         [key]: [
@@ -23997,7 +24037,7 @@
       if (!selectedResource || !selectedDate) return;
       const key = makeBookingKey(selectedResource.id, selectedDate);
       const existing = bookings[key] || [];
-      const userName = "You";
+      const userName = currentUser;
       const filtered = existing.filter(
         (b) => !(b.start === startTime && b.end === endTime && b.user === userName)
       );
@@ -24021,21 +24061,31 @@
         return Number(next.toFixed(2));
       });
     };
-    const departmentBookings = (0, import_react.useMemo)(() => {
+    const departmentBookings = (0, import_react2.useMemo)(() => {
       if (!selectedDepartment) return [];
       return DEPARTMENT_BOOKINGS[selectedDepartment] || [];
     }, [selectedDepartment]);
-    const departmentDeskIds = (0, import_react.useMemo)(
+    const departmentDeskIds = (0, import_react2.useMemo)(
       () => departmentBookings.map((b) => b.deskId),
       [departmentBookings]
     );
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "map-wrapper" }, /* @__PURE__ */ import_react.default.createElement("h1", { className: "map-title" }, "Office Planner"), /* @__PURE__ */ import_react.default.createElement("div", { className: "layout" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "map-card" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "map-toolbar" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "toolbar-label" }, "Zoom"), /* @__PURE__ */ import_react.default.createElement("button", { onClick: () => handleZoomChange(-0.1) }, "-"), /* @__PURE__ */ import_react.default.createElement("span", { className: "zoom-label" }, Math.round(zoom * 100), "%"), /* @__PURE__ */ import_react.default.createElement("button", { onClick: () => handleZoomChange(0.1) }, "+")), /* @__PURE__ */ import_react.default.createElement("div", { className: "map-viewport" }, /* @__PURE__ */ import_react.default.createElement(
+    if (!currentUser) {
+      return /* @__PURE__ */ import_react2.default.createElement(LoginPage_default, { onLogin: handleLogin });
+    }
+    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map-wrapper" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "map-title" }, "Office Planner"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "user-info" }, /* @__PURE__ */ import_react2.default.createElement("span", null, "Logged in as: ", /* @__PURE__ */ import_react2.default.createElement("strong", null, currentUser)), /* @__PURE__ */ import_react2.default.createElement(
+      "button",
+      {
+        onClick: () => setCurrentUser(null),
+        className: "secondary-btn"
+      },
+      "Logout"
+    )), /* @__PURE__ */ import_react2.default.createElement("div", { className: "layout" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map-card" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map-toolbar" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "toolbar-label" }, "Zoom"), /* @__PURE__ */ import_react2.default.createElement("button", { onClick: () => handleZoomChange(-0.1) }, "-"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "zoom-label" }, Math.round(zoom * 100), "%"), /* @__PURE__ */ import_react2.default.createElement("button", { onClick: () => handleZoomChange(0.1) }, "+")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "map-viewport" }, /* @__PURE__ */ import_react2.default.createElement(
       "div",
       {
         className: "map-inner" + (selectedDepartment ? " map-inner--dept-filter" : ""),
         style: { transform: `scale(${zoom})` }
       },
-      /* @__PURE__ */ import_react.default.createElement(
+      /* @__PURE__ */ import_react2.default.createElement(
         "img",
         {
           src: floorplan_default,
@@ -24067,7 +24117,7 @@
         const isReqTypeRes = ["room", "wellness", "admin", "bub"].includes(
           res.type
         );
-        return /* @__PURE__ */ import_react.default.createElement(
+        return /* @__PURE__ */ import_react2.default.createElement(
           "button",
           {
             key: res.id,
@@ -24086,10 +24136,10 @@
             onClick: () => setSelectedResourceId(res.id),
             title: `${res.label} \u2022 ${hasValidInterval ? isBooked ? "Not available in this interval" : "Available in this interval" : isBooked ? "Has bookings this day" : "No bookings this day"}`
           },
-          /* @__PURE__ */ import_react.default.createElement("span", { className: "resource-pin-label" }, res.type === "desk" ? "D" : res.type === "room" ? "R" : res.type === "admin" ? "A" : res.type === "bub" ? "B" : res.type === "wellness" ? "W" : res.type === "bigroom" ? "B" : res.type === "beerpong" ? "BZ" : ".")
+          /* @__PURE__ */ import_react2.default.createElement("span", { className: "resource-pin-label" }, res.type === "desk" ? "D" : res.type === "room" ? "R" : res.type === "admin" ? "A" : res.type === "bub" ? "B" : res.type === "wellness" ? "W" : res.type === "bigroom" ? "B" : res.type === "beerpong" ? "BZ" : ".")
         );
       })
-    ))), /* @__PURE__ */ import_react.default.createElement("aside", { className: "booking-card" }, /* @__PURE__ */ import_react.default.createElement("h2", null, "Booking"), selectedResource ? /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("div", { className: "booking-section" }, /* @__PURE__ */ import_react.default.createElement("p", { className: "booking-label" }, "Selected"), /* @__PURE__ */ import_react.default.createElement("p", { className: "booking-value" }, /* @__PURE__ */ import_react.default.createElement("strong", null, selectedResource.label), " ", /* @__PURE__ */ import_react.default.createElement("span", { className: "badge" }, selectedResource.type === "desk" ? "Desk" : selectedResource.type === "room" ? "Meeting Room" : selectedResource.type))), /* @__PURE__ */ import_react.default.createElement("div", { className: "booking-section" }, /* @__PURE__ */ import_react.default.createElement("label", { className: "booking-label", htmlFor: "date" }, "Date"), /* @__PURE__ */ import_react.default.createElement(
+    ))), /* @__PURE__ */ import_react2.default.createElement("aside", { className: "booking-card" }, /* @__PURE__ */ import_react2.default.createElement("h2", null, "Booking"), selectedResource ? /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", { className: "booking-section" }, /* @__PURE__ */ import_react2.default.createElement("p", { className: "booking-label" }, "Selected"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "booking-value" }, /* @__PURE__ */ import_react2.default.createElement("strong", null, selectedResource.label), " ", /* @__PURE__ */ import_react2.default.createElement("span", { className: "badge" }, selectedResource.type === "desk" ? "Desk" : selectedResource.type === "room" ? "Meeting Room" : selectedResource.type))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "booking-section" }, /* @__PURE__ */ import_react2.default.createElement("label", { className: "booking-label", htmlFor: "date" }, "Date"), /* @__PURE__ */ import_react2.default.createElement(
       "input",
       {
         id: "date",
@@ -24097,7 +24147,7 @@
         value: selectedDate,
         onChange: (e) => setSelectedDate(e.target.value)
       }
-    )), /* @__PURE__ */ import_react.default.createElement("div", { className: "booking-section booking-times" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "booking-times-header" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "booking-label" }, "Time interval")), /* @__PURE__ */ import_react.default.createElement("div", { className: "time-row" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "time-field" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "startTime" }, "Start"), /* @__PURE__ */ import_react.default.createElement(
+    )), /* @__PURE__ */ import_react2.default.createElement("div", { className: "booking-section booking-times" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "booking-times-header" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "booking-label" }, "Time interval")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "time-row" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "time-field" }, /* @__PURE__ */ import_react2.default.createElement("label", { htmlFor: "startTime" }, "Start"), /* @__PURE__ */ import_react2.default.createElement(
       "input",
       {
         id: "startTime",
@@ -24105,7 +24155,7 @@
         value: startTime,
         onChange: (e) => setStartTime(e.target.value)
       }
-    )), /* @__PURE__ */ import_react.default.createElement("span", { className: "time-separator" }, "to"), /* @__PURE__ */ import_react.default.createElement("div", { className: "time-field" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "endTime" }, "End"), /* @__PURE__ */ import_react.default.createElement(
+    )), /* @__PURE__ */ import_react2.default.createElement("span", { className: "time-separator" }, "to"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "time-field" }, /* @__PURE__ */ import_react2.default.createElement("label", { htmlFor: "endTime" }, "End"), /* @__PURE__ */ import_react2.default.createElement(
       "input",
       {
         id: "endTime",
@@ -24113,7 +24163,7 @@
         value: endTime,
         onChange: (e) => setEndTime(e.target.value)
       }
-    )))), /* @__PURE__ */ import_react.default.createElement("div", { className: "booking-section" }, /* @__PURE__ */ import_react.default.createElement("label", { className: "booking-label", htmlFor: "department" }, "Department view"), /* @__PURE__ */ import_react.default.createElement(
+    )))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "booking-section" }, /* @__PURE__ */ import_react2.default.createElement("label", { className: "booking-label", htmlFor: "department" }, "Department view"), /* @__PURE__ */ import_react2.default.createElement(
       "select",
       {
         id: "department",
@@ -24121,23 +24171,23 @@
         value: selectedDepartment,
         onChange: (e) => setSelectedDepartment(e.target.value)
       },
-      /* @__PURE__ */ import_react.default.createElement("option", { value: "" }, "All departments"),
-      DEPARTMENTS.map((dept) => /* @__PURE__ */ import_react.default.createElement("option", { key: dept, value: dept }, dept))
-    ), selectedDepartment && /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("p", { className: "booking-subtitle" }, "Showing bookings for ", selectedDepartment), /* @__PURE__ */ import_react.default.createElement("ul", { className: "dept-booking-list" }, departmentBookings.map((b, idx) => {
+      /* @__PURE__ */ import_react2.default.createElement("option", { value: "" }, "All departments"),
+      DEPARTMENTS.map((dept) => /* @__PURE__ */ import_react2.default.createElement("option", { key: dept, value: dept }, dept))
+    ), selectedDepartment && /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("p", { className: "booking-subtitle" }, "Showing bookings for ", selectedDepartment), /* @__PURE__ */ import_react2.default.createElement("ul", { className: "dept-booking-list" }, departmentBookings.map((b, idx) => {
       const desk = RESOURCES.find(
         (r) => r.id === b.deskId
       );
-      return /* @__PURE__ */ import_react.default.createElement("li", { key: idx }, /* @__PURE__ */ import_react.default.createElement("span", { className: "dept-employee" }, b.employee), /* @__PURE__ */ import_react.default.createElement("span", { className: "dept-desk" }, desk ? desk.label : b.deskId), /* @__PURE__ */ import_react.default.createElement("span", { className: "dept-time" }, b.start, " \u2013 ", b.end));
-    })))), /* @__PURE__ */ import_react.default.createElement("div", { className: "booking-section" }, /* @__PURE__ */ import_react.default.createElement("p", { className: "booking-label" }, "Status"), /* @__PURE__ */ import_react.default.createElement(
+      return /* @__PURE__ */ import_react2.default.createElement("li", { key: idx }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "dept-employee" }, b.employee), /* @__PURE__ */ import_react2.default.createElement("span", { className: "dept-desk" }, desk ? desk.label : b.deskId), /* @__PURE__ */ import_react2.default.createElement("span", { className: "dept-time" }, b.start, " \u2013 ", b.end));
+    })))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "booking-section" }, /* @__PURE__ */ import_react2.default.createElement("p", { className: "booking-label" }, "Status"), /* @__PURE__ */ import_react2.default.createElement(
       "p",
       {
         className: "booking-status " + (isSelectedBooked ? "status-booked" : "status-free")
       },
       hasValidInterval ? isSelectedBooked ? "Booked in this time interval" : "Available in this time interval" : isSelectedBooked ? "Has bookings for this date" : "No bookings for this date"
-    ), bookingsForSelected.length > 0 && /* @__PURE__ */ import_react.default.createElement("ul", { className: "booking-list" }, bookingsForSelected.map((b, idx) => {
-      const isRequestForYou = isRequestType && b.user === "You";
-      return /* @__PURE__ */ import_react.default.createElement("li", { key: idx }, b.start, "-", b.end, " ", isRequestForYou ? "Request " : "", "(", b.user, b.department ? `, ${b.department}` : "", ")");
-    }))), /* @__PURE__ */ import_react.default.createElement("div", { className: "booking-actions" }, /* @__PURE__ */ import_react.default.createElement(
+    ), bookingsForSelected.length > 0 && /* @__PURE__ */ import_react2.default.createElement("ul", { className: "booking-list" }, bookingsForSelected.map((b, idx) => {
+      const isRequestForYou = isRequestType && b.user === currentUser;
+      return /* @__PURE__ */ import_react2.default.createElement("li", { key: idx }, b.start, "-", b.end, " ", isRequestForYou ? "Request " : "", "(", b.user, b.department ? `, ${b.department}` : "", ")");
+    }))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "booking-actions" }, /* @__PURE__ */ import_react2.default.createElement(
       "button",
       {
         className: [
@@ -24149,14 +24199,14 @@
         disabled: !canBook
       },
       primaryButtonLabel
-    ), /* @__PURE__ */ import_react.default.createElement("button", { className: "secondary-btn", onClick: handleCancel }, "Cancel this interval")), /* @__PURE__ */ import_react.default.createElement("p", { className: "hint" }, "Pick a date and time interval (e.g. 18:00\u201320:00). Pins turn green if they\u2019re free for that interval and red if they\u2019re booked by you or department employees. Selecting a department highlights that team\u2019s desks.")) : /* @__PURE__ */ import_react.default.createElement("p", null, "Select a desk or room on the map.")))));
+    ), /* @__PURE__ */ import_react2.default.createElement("button", { className: "secondary-btn", onClick: handleCancel }, "Cancel this interval")), /* @__PURE__ */ import_react2.default.createElement("p", { className: "hint" }, "Pick a date and time interval (e.g. 18:00\u201320:00). Pins turn green if they\u2019re free for that interval and red if they\u2019re booked by you or department employees. Selecting a department highlights that team\u2019s desks.")) : /* @__PURE__ */ import_react2.default.createElement("p", null, "Select a desk or room on the map.")))));
   }
   var App_default = App;
 
   // src/main.jsx
   var root = import_client.default.createRoot(document.getElementById("root"));
   root.render(
-    /* @__PURE__ */ import_react2.default.createElement(import_react2.default.StrictMode, null, /* @__PURE__ */ import_react2.default.createElement(App_default, null))
+    /* @__PURE__ */ import_react3.default.createElement(import_react3.default.StrictMode, null, /* @__PURE__ */ import_react3.default.createElement(App_default, null))
   );
 })();
 /*! Bundled license information:
