@@ -520,9 +520,12 @@ const primaryButtonLabel = isRequestType ? "Request" : "Book interval";
             Logged in as: <strong>{currentUser}</strong>
           </span>
           <span>
-            Bookings : <strong>{userActionCount}</strong>
+            Bookings : <strong>{userActionCount} 🍻 </strong>
           </span>
-
+          <span className="booking-status-text">
+          {/* Example: Display a status based on the count */}
+          {userActionCount == 20 ? 'One beer on the house!' : 'Reach 20 bookings for one free beer!'}
+        </span>
           <button
             onClick={() => setCurrentUser(null)}
             className="secondary-btn"

@@ -454,6 +454,9 @@ body {
   background: linear-gradient(135deg, #0ea5e9, #22c55e);
   color: #f9fafb;
   box-shadow: 0 12px 25px rgba(34, 197, 94, 0.4);
+  
+  /* ADĂUGAȚI ACEASTĂ PROPRIETATE: */
+  margin-top: 1.5rem; /* Adaugă spațiu deasupra butonului */
 }
 
 /* Yellow gradient for Request (rooms, wellness, admin, bub) */
@@ -734,35 +737,88 @@ body {
   /* CRITICAL: Fill the entire viewport */
   min-height: 100vh;
   width: 100%;
-  
+
   /* CRITICAL: Use Flexbox for centering */
   display: flex;
   align-items: center; /* Centers vertically */
   justify-content: center; /* Centers horizontally */
 
-  /* Visual styling */
-  background-color: #f0f2f5;
-  padding: 20px; /* Optional: Adds padding around the edges */
-  box-sizing: border-box; 
+  /* Visual styling (Cleaned) */
+  /*background-color: #ffffff;*/
+  background: radial-gradient(
+    circle,         /* Shape: 'circle' or 'ellipse' */
+    #ffc800,        /* Starts with Yellow in the center */
+    #ff4000,        /* Transitions to Red */
+     /* Ends with Blue on the outside edge */
+     #0066ff
+  );
+  box-sizing: border-box;
+
+  /* REMOVED MISPLACED STYLES: 
+     font-size: 36px;
+     text-align: center;
+     margin-bottom: 35px; 
+     padding: 30px 40px; 
+  */
 }
 
 .login-card {
   /* Ensures the card doesn't expand beyond a reasonable size */
-  background: #ffffff;
+  background: #efe8e8;
   padding: 2.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
   width: 100%;
   max-width: 400px; /* Limits the width of the card */
+  position: relative;
+
+  /* REMOVED MISPLACED STYLES:
+     height: 50px; 
+     margin: 20px 0;
+  */
+}
+
+/* --- Add these styles to your CSS file (e.g., in a separate loginform.css or at the end of app.css) --- */
+
+/* 🚀 FIX 1: Add space below the main login title (e.g., "Office Planner Login") */
+.login-card h1 {
+  /* Add margin below the H1 to push the Username field down */
+  margin-bottom: 2rem; 
+}
+
+/* 🚀 FIX 2: Ensure the Username input container has space above it, 
+   or apply it directly to the element before the input if it's a label/div. 
+   Assuming the Username label is inside a section or is an immediate child of the form: */
+.login-card label {
+  /* Increase space below the label, or above the input */
+  margin-top: 1rem; 
+  display: block; /* Important if it's an inline element */
+}
+
+/* If you have a specific container for the username input (like .input-box from the previous example) */
+.login-card .input-box {
+  /* Ensure a minimum gap if the label doesn't create enough */
+  margin-top: 1rem;
 }
 
 .user-counter-badge {
     /* Style for the counter display */
     padding: 0.25rem 0.75rem;
-    background-color: #28a745; /* Success Green for positive actions */
+    background-color: #1099f5; /* Success Green for positive actions */
     color: white;
     border-radius: 20px; /* Pill shape */
     font-size: 0.8rem;
     font-weight: 600;
-    white-space: nowrap; /* Prevents wrapping */
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+.user-info {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
 }

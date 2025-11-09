@@ -17,7 +17,7 @@ function LoginPage({ onLogin }) {
     <div className="login-page">
       <div className="login-card">
         <form onSubmit={handleSubmit}>
-          <h2>Office Planner Login</h2>
+          <h2 class="centered-text">Office Planner Login</h2>
           <div className="form-group">
             <label htmlFor="username">Username</label>
             <input

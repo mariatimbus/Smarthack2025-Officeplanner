@@ -23604,7 +23604,7 @@
         alert("Please enter a username.");
       }
     };
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "login-page" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "login-card" }, /* @__PURE__ */ import_react.default.createElement("form", { onSubmit: handleSubmit }, /* @__PURE__ */ import_react.default.createElement("h2", null, "Office Planner Login"), /* @__PURE__ */ import_react.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "username" }, "Username"), /* @__PURE__ */ import_react.default.createElement(
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "login-page" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "login-card" }, /* @__PURE__ */ import_react.default.createElement("form", { onSubmit: handleSubmit }, /* @__PURE__ */ import_react.default.createElement("h2", { class: "centered-text" }, "Office Planner Login"), /* @__PURE__ */ import_react.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "username" }, "Username"), /* @__PURE__ */ import_react.default.createElement(
       "input",
       {
         id: "username",
@@ -24074,7 +24074,7 @@
     if (!currentUser) {
       return /* @__PURE__ */ import_react2.default.createElement(LoginPage_default, { onLogin: handleLogin });
     }
-    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map-wrapper" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "map-title" }, "Office Planner"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "user-info" }, /* @__PURE__ */ import_react2.default.createElement("span", null, "Logged in as: ", /* @__PURE__ */ import_react2.default.createElement("strong", null, currentUser)), /* @__PURE__ */ import_react2.default.createElement("span", null, "Bookings : ", /* @__PURE__ */ import_react2.default.createElement("strong", null, userActionCount)), /* @__PURE__ */ import_react2.default.createElement(
+    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map-wrapper" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "map-title" }, "Office Planner"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "user-info" }, /* @__PURE__ */ import_react2.default.createElement("span", null, "Logged in as: ", /* @__PURE__ */ import_react2.default.createElement("strong", null, currentUser)), /* @__PURE__ */ import_react2.default.createElement("span", null, "Bookings : ", /* @__PURE__ */ import_react2.default.createElement("strong", null, userActionCount, " \u{1F37B} ")), /* @__PURE__ */ import_react2.default.createElement("span", { className: "booking-status-text" }, userActionCount == 20 ? "One beer on the house!" : "Reach 20 bookings for one free beer!"), /* @__PURE__ */ import_react2.default.createElement(
       "button",
       {
         onClick: () => setCurrentUser(null),
