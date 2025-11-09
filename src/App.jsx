@@ -338,6 +338,7 @@ function App() {
   const [zoom, setZoom] = useState(1);
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [bookings, setBookings] = useState({});
+  const [userActionCount, setUserActionCount] = useState(0);
 
   const selectedResource = useMemo(
     () => RESOURCES.find((r) => r.id === selectedResourceId),
@@ -454,6 +455,7 @@ const primaryButtonLabel = isRequestType ? "Request" : "Book interval";
         },
       ],
     }));
+    setUserActionCount(prevCount => prevCount + 1);
   };
 
   const handleCancel = () => {
@@ -517,6 +519,10 @@ const primaryButtonLabel = isRequestType ? "Request" : "Book interval";
           <span>
             Logged in as: <strong>{currentUser}</strong>
           </span>
+          <span>
+            Bookings : <strong>{userActionCount}</strong>
+          </span>
+
           <button
             onClick={() => setCurrentUser(null)}
             className="secondary-btn"

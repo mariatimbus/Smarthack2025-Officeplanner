@@ -23948,6 +23948,7 @@
     const [zoom, setZoom] = (0, import_react2.useState)(1);
     const [selectedDepartment, setSelectedDepartment] = (0, import_react2.useState)("");
     const [bookings, setBookings] = (0, import_react2.useState)({});
+    const [userActionCount, setUserActionCount] = (0, import_react2.useState)(0);
     const selectedResource = (0, import_react2.useMemo)(
       () => RESOURCES.find((r) => r.id === selectedResourceId),
       [selectedResourceId]
@@ -24032,6 +24033,7 @@
           }
         ]
       }));
+      setUserActionCount((prevCount) => prevCount + 1);
     };
     const handleCancel = () => {
       if (!selectedResource || !selectedDate) return;
@@ -24072,7 +24074,7 @@
     if (!currentUser) {
       return /* @__PURE__ */ import_react2.default.createElement(LoginPage_default, { onLogin: handleLogin });
     }
-    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map-wrapper" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "map-title" }, "Office Planner"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "user-info" }, /* @__PURE__ */ import_react2.default.createElement("span", null, "Logged in as: ", /* @__PURE__ */ import_react2.default.createElement("strong", null, currentUser)), /* @__PURE__ */ import_react2.default.createElement(
+    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "map-wrapper" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "map-title" }, "Office Planner"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "user-info" }, /* @__PURE__ */ import_react2.default.createElement("span", null, "Logged in as: ", /* @__PURE__ */ import_react2.default.createElement("strong", null, currentUser)), /* @__PURE__ */ import_react2.default.createElement("span", null, "Bookings : ", /* @__PURE__ */ import_react2.default.createElement("strong", null, userActionCount)), /* @__PURE__ */ import_react2.default.createElement(
       "button",
       {
         onClick: () => setCurrentUser(null),
